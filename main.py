@@ -135,11 +135,11 @@ class BoxLayoutExample(BoxLayout):
     def Scheduller(self):
         # timer only second int or float
         # Clock.schedule_interval(self.update, 2)
-        Clock.schedule_interval(update_gps_test, (60 * 0.5))
+        # Clock.schedule_interval(update_gps_test, (60 * 0.5))
         if not self.first_open:
             Clock.schedule_interval(self.start_screen, 0.1)
         # 60 second * 9 minute
-        Clock.schedule_interval(self.update_token, (60 * 1.5))
+        # Clock.schedule_interval(self.update_token, (60 * 1.5))
 
     def start_screen(self, dt):
         if not self.first_open:
@@ -158,12 +158,12 @@ class BoxLayoutExample(BoxLayout):
         from SQLite.SQLite_CRUD_Querry.SQLite_Update import sqlite_update_table
         from SQLite.SQLite_CRUD_Querry.SQLite_Read import sqlite_read_col_in_table
         dic_data = dict()
-        token_logistics = API.get_token("/token",
-                                        sqlite_read_col_in_table("settings", "Connect_login"),
-                                        sqlite_read_col_in_table("settings", "Connect_password"))
-        print("t",token_logistics)
-        dic_data.update({'id': 0, 'token': token_logistics, 'datetime_write': datetime.datetime.now()})
-        sqlite_update_table('token', dic_data)
+        # token_logistics = API.get_token("/token",
+        #                                 sqlite_read_col_in_table("settings", "Connect_login"),
+        #                                 sqlite_read_col_in_table("settings", "Connect_password"))
+        # print("t",token_logistics)
+        # dic_data.update({'id': 0, 'token': token_logistics, 'datetime_write': datetime.datetime.now()})
+        # sqlite_update_table('token', dic_data)
         # print('All token: ', API.get_token_out_sqlite())
         # print('Begin 20 simbl token: ', API.get_token_out_sqlite()[:20])
 
